@@ -1,4 +1,7 @@
 #!/bin/bash
+MODULE_PATH=$(dirname $0)/../module 
+source $MODULE_PATH/app.sh
+
 USAGE=$(cat <<-END
 
 Ensure 0.1.0
@@ -8,9 +11,33 @@ Usage: ensure COMMAND
 Ensure that a Mac is in a desirable state
 
 Commands:
-  foo         Foo description
+  app             Ensure that all apps are installed and cleaned
+  app:clean       Ensure that extra apps are removed
+  app:install     Ensure that all apps are installed
+  app:upgrade     Ensure that all apps are the latest version
 
 END
 )
 
-echo "$USAGE"
+command_app() {
+  app_clean
+  app_install
+}
+
+command_app:clean() {
+  app_clean 
+}
+
+command_app:install() {
+  app_install  
+}
+
+command_app:upgrade() {
+  app_upgrage
+}
+
+if type -t "command_$1" &>/dev/null; then
+  command_$1 ${@:2}
+else
+  echo "$USAGE"
+fi
