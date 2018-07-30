@@ -1,6 +1,9 @@
 BASE_DIR=$(dirname $0)/..
-BREWFILE_DIR=$BASE_DIR/brew
+PACKAGES_DIR=$BASE_DIR/packages
+BREWFILE_DIR=$PACKAGES_DIR/brew
 BREW_FILE=$BREWFILE_DIR/Brewfile
+REQUIREMENTS_DIR=$PACKAGES_DIR/pip
+REQUIREMENTS_FILE=$REQUIREMENTS_DIR/requirements.txt
 
 app_clean() {
   echo "Uninstalling unused apps..."
@@ -11,7 +14,11 @@ app_clean() {
 
 app_install() {
   echo "Installing apps..."
-  brew bundle --no-upgrade --file=$BREW_FILE
+  brew bundle --file=$BREW_FILE
+  echo "Updating packages..."
+  brew upgrade
+  echo "Installing python apps..."
+  pip3 install -r $REQUIREMENTS_FILE
 }
 
 app_update() {

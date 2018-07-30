@@ -6,6 +6,7 @@ tap 'neovim/neovim'
 
 brew 'ag'
 brew 'aria2'
+brew 'awscli'
 brew 'coreutils'
 brew 'ctags'
 brew 'fzf'

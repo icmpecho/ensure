@@ -15,7 +15,6 @@ Commands:
   app             Ensure that all apps are installed and cleaned
   app:clean       Ensure that extra apps are removed
   app:install     Ensure that all apps are installed
-  app:update      Ensure that all apps are the latest version
 
 END
 )
@@ -31,10 +30,6 @@ command_app:clean() {
 
 command_app:install() {
   app_install
-}
-
-command_app:update() {
-  app_update
 }
 
 if type -t "command_$1" &>/dev/null; then
