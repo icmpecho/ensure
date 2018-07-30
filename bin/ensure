@@ -1,0 +1,16 @@
+#!/bin/bash
+USAGE=$(cat <<-END
+
+Ensure 0.1.0
+
+Usage: ensure COMMAND
+
+Ensure that a Mac is in a desirable state
+
+Commands:
+  foo         Foo description
+
+END
+)
+
+echo "$USAGE"
