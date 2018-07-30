@@ -1,6 +1,7 @@
 #!/bin/bash
-MODULE_PATH=$(dirname $0)/../module 
-source $MODULE_PATH/app.sh
+BASE_DIR=$(dirname $0)/..
+MODULE_DIR=$BASE_DIR/module
+source $MODULE_DIR/app.sh
 
 USAGE=$(cat <<-END
 
@@ -14,26 +15,26 @@ Commands:
   app             Ensure that all apps are installed and cleaned
   app:clean       Ensure that extra apps are removed
   app:install     Ensure that all apps are installed
-  app:upgrade     Ensure that all apps are the latest version
+  app:update      Ensure that all apps are the latest version
 
 END
 )
 
 command_app() {
-  app_clean
   app_install
+  app_clean
 }
 
 command_app:clean() {
-  app_clean 
+  app_clean
 }
 
 command_app:install() {
-  app_install  
+  app_install
 }
 
-command_app:upgrade() {
-  app_upgrage
+command_app:update() {
+  app_update
 }
 
 if type -t "command_$1" &>/dev/null; then
