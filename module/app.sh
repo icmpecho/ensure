@@ -4,6 +4,7 @@ BREWFILE_DIR=$PACKAGES_DIR/brew
 BREW_FILE=$BREWFILE_DIR/Brewfile
 REQUIREMENTS_DIR=$PACKAGES_DIR/pip
 REQUIREMENTS_FILE=$REQUIREMENTS_DIR/requirements.txt
+INSTALLER_FILE=$PACKAGES_DIR/install.sh
 
 app_clean() {
   echo "Uninstalling unused apps..."
@@ -19,6 +20,8 @@ app_install() {
   brew upgrade
   echo "Installing python apps..."
   pip3 install --upgrade -r $REQUIREMENTS_FILE
+  echo "Installing other packages..."
+  sh -c $INSTALLER_FILE
 }
 
 app_update() {
