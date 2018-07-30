@@ -18,7 +18,7 @@ app_install() {
   echo "Updating packages..."
   brew upgrade
   echo "Installing python apps..."
-  pip3 install -r $REQUIREMENTS_FILE
+  pip3 install --upgrade -r $REQUIREMENTS_FILE
 }
 
 app_update() {
