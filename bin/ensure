@@ -1,5 +1,5 @@
 #!/bin/bash
-BASE_DIR=$(dirname $0)/..
+BASE_DIR=$(dirname $(realpath $0))/..
 MODULE_DIR=$BASE_DIR/module
 source $MODULE_DIR/app.sh
 

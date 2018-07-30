@@ -1,4 +1,4 @@
-BASE_DIR=$(dirname $0)/..
+BASE_DIR=$(dirname $(realpath $0))/..
 PACKAGES_DIR=$BASE_DIR/packages
 BREWFILE_DIR=$PACKAGES_DIR/brew
 BREW_FILE=$BREWFILE_DIR/Brewfile
