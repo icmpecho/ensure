@@ -1,0 +1,5 @@
+[user]
+        name = Pinnapong Silpsakulsuk
+        email = pinnapong@gmail.com
+[credential]
+        helper = osxkeychain
