@@ -16,7 +16,7 @@ Commands:
   app             Ensure that all apps are installed and cleaned
   app:clean       Ensure that extra apps are removed
   app:install     Ensure that all apps are installed
-  dot:link        Ensure that all dotfiles are symlinked
+  dot             Ensure that all dotfiles are symlinked
 
 END
 )
@@ -40,7 +40,7 @@ command_app:install() {
   app_teardown
 }
 
-command_dot:link() {
+command_dot() {
   dot_link
 }
 
