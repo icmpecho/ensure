@@ -20,16 +20,22 @@ END
 )
 
 command_app() {
+  app_setup
   app_install
   app_clean
+  app_teardown
 }
 
 command_app:clean() {
+  app_setup
   app_clean
+  app_teardown
 }
 
 command_app:install() {
+  app_setup
   app_install
+  app_teardown
 }
 
 if type -t "command_$1" &>/dev/null; then
