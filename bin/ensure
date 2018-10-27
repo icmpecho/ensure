@@ -2,6 +2,7 @@
 BASE_DIR=$(dirname $(realpath $0))/..
 MODULE_DIR=$BASE_DIR/module
 source $MODULE_DIR/app.sh
+source $MODULE_DIR/dot.sh
 
 USAGE=$(cat <<-END
 
@@ -15,6 +16,7 @@ Commands:
   app             Ensure that all apps are installed and cleaned
   app:clean       Ensure that extra apps are removed
   app:install     Ensure that all apps are installed
+  dot:link        Ensure that all dotfiles are symlinked
 
 END
 )
@@ -36,6 +38,10 @@ command_app:install() {
   app_setup
   app_install
   app_teardown
+}
+
+command_dot:link() {
+  dot_link
 }
 
 if type -t "command_$1" &>/dev/null; then
