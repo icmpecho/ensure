@@ -26,11 +26,16 @@ link_file () {
 
 dot_link() {
   info "Linking dotfiles..."
-  local overwrite_all=false backup_all=false skip_all=false
-
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+}
+
+dot_nvim_link() {
+  info 'Linking nvim init.vim'
+  NVIM_CONFIG_DIR="$HOME/.config/nvim"
+  mkdir -p "$NVIM_CONFIG_DIR"
+  link_file "$DOTFILES_ROOT/init.vim" "$NVIM_CONFIG_DIR/init.vim"
 }

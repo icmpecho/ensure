@@ -42,6 +42,7 @@ command_app:install() {
 
 command_dot() {
   dot_link
+  dot_nvim_link
 }
 
 if type -t "command_$1" &>/dev/null; then
