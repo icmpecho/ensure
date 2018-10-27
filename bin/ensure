@@ -3,6 +3,7 @@ BASE_DIR=$(dirname $(realpath $0))/..
 MODULE_DIR=$BASE_DIR/module
 source $MODULE_DIR/app.sh
 source $MODULE_DIR/dot.sh
+source $MODULE_DIR/setup.sh
 
 USAGE=$(cat <<-END
 
@@ -13,11 +14,12 @@ Usage: ensure COMMAND
 Ensure that a Mac is in a desirable state
 
 Commands:
+  all             Ensure everything
   app             Ensure that all apps are installed and cleaned
   app:clean       Ensure that extra apps are removed
   app:install     Ensure that all apps are installed
   dot             Ensure that all dotfiles are symlinked
-
+  setup           Trigger setup scripts
 END
 )
 
@@ -43,6 +45,16 @@ command_app:install() {
 command_dot() {
   dot_link
   dot_nvim_link
+}
+
+command_setup() {
+  setup
+}
+
+command_all() {
+  command_app
+  command_dot
+  command_setup
 }
 
 if type -t "command_$1" &>/dev/null; then
