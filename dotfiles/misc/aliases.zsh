@@ -13,3 +13,6 @@ fi
 
 alias ack=ag
 alias vim=nvim
+alias cat=bat
+alias ping='prettyping --nolegend'
+alias p="fzf --preview 'bat --color \"always\" {}'"
